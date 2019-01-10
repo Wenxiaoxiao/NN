@@ -7,6 +7,9 @@ import {
 } from 'react-router-dom';
 import MyZone from '../MyZone';
 import MyZoneTask from '../MyZone/MyZoneTask';
+import MyZoneDemand from '../MyZone/MyZoneDemand';
+import MyZoneDemandCard from '../MyZone/MyZoneDemandCard';
+import MyZoneBug from '../MyZone/MyZoneBug';
 import Demand from '../Demand';
 import Test from '../Test';
 import Task from '../Task';
@@ -116,7 +119,10 @@ class Main extends Component {
          <Router>
           <Switch> 
             <Route exact path="/Main" component={MyZone} />
-            <Route exact path="/Main/MyZoneTask" component={MyZoneTask} />         
+            <Route exact path="/Main/MyZoneTask" component={MyZoneTask} />    
+            <Route path="/Main/MyZoneBug" component={MyZoneBug} />
+            <Route path="/Main/MyZoneDemand" component={MyZoneDemand} />         
+            <Route path="/Main/MyZoneDemandCard" component={MyZoneDemandCard} />     
             <Route path="/Main/Demand" component={Demand} />
             <Route path="/Main/Test" component={Test} />
             <Route path="/Main/Task" component={Task} />
