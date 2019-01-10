@@ -23,6 +23,7 @@ class PmpRouter extends Component {
       <Route exact path="/" component={Login} />
       <Route path="/Main" component={Main} />
        <Route component={NoMatch}/>
+       <Redirect to="/" ></Redirect>
      </Switch>
      </div>
      </Router>
