@@ -15,6 +15,7 @@ import Product from '../Product';
 import Project from '../Project';
 import Feedback from '../Feedback';
 import BasicData from '../BasicData';
+import VersionAdd from '../VersionPlan/VersionAdd';
 
 
 const { Header } = Layout;
@@ -119,11 +120,12 @@ class Main extends Component {
             <Route path="/Main/Demand" component={Demand} />
             <Route path="/Main/Test" component={Test} />
             <Route path="/Main/Task" component={Task} />
-            <Route path="/Main/VersionPlan" component={VersionPlan} />
+            <Route exact path="/Main/VersionPlan" component={VersionPlan} />
             <Route path="/Main/Product" component={Product} />
             <Route path="/Main/Project" component={Project} />
             <Route path="/Main/Feedback" component={Feedback} />
             <Route path="/Main/BasicData" component={BasicData} />
+            <Route exact path="/Main/VersionPlan/VersionAdd" component={VersionAdd} />
           </Switch> 
         </Router>
     </Layout>
