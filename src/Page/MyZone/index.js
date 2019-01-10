@@ -100,7 +100,7 @@ class MyZone extends Component {
   }
   componentDidMount() {
     // todo 三个table各自数据的请求是否需要考虑后台的分页？？？，还是一次性请求回来后前端进行分页处理？
-    Fetch('http://127.0.0.1:3000/demand.json',{},{method: 'GET'}).then((responseData) => {
+    Fetch('http://127.0.0.1:8080/demand.json',{},{method: 'GET'}).then((responseData) => {
       console.log('接口回来的数据：')
       console.log(responseData)
       this.setState({
@@ -108,7 +108,7 @@ class MyZone extends Component {
       })
     })
     // bug列表接口
-    Fetch('http://127.0.0.1:3000/bug.json',{},{method: 'GET'}).then((responseData) => {
+    Fetch('http://127.0.0.1:8080/bug.json',{},{method: 'GET'}).then((responseData) => {
       console.log('接口回来的数据：')
       console.log(responseData)
       this.setState({
@@ -116,7 +116,7 @@ class MyZone extends Component {
       })
     })
     // 任务列表接口
-    Fetch('http://127.0.0.1:3000/task.json',{},{method: 'GET'}).then((responseData) => {
+    Fetch('http://127.0.0.1:8080/task.json',{},{method: 'GET'}).then((responseData) => {
       console.log('接口回来的数据：')
       console.log(responseData)
       const arr = this.arrDone(responseData.data)

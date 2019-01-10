@@ -47,8 +47,8 @@ class MyZoneTask extends Component {
  
   componentDidMount() {
     // 任务列表接口
-    // http://127.0.0.1:3000/task.json http://10.4.7.27:8888/api/Assignment/AddAssignment
-    Fetch('http://127.0.0.1:3000/task.json',{},{method: 'GET'}).then((responseData) => {
+    // http://127.0.0.1:8080/task.json http://10.4.7.27:8888/api/Assignment/AddAssignment
+    Fetch('http://127.0.0.1:8080/task.json',{},{method: 'GET'}).then((responseData) => {
       console.log('接口回来的数据：')
       console.log(responseData)
       this.setState({

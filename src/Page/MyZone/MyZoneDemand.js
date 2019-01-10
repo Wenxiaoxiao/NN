@@ -57,7 +57,7 @@ class MyZoneNeed extends Component {
   }
   
   componentDidMount() {
-    Fetch('http://127.0.0.1:3000/demand.json',{},{method: 'GET'}).then((responseData) => {
+    Fetch('http://127.0.0.1:8080/demand.json',{},{method: 'GET'}).then((responseData) => {
       console.log('接口回来的数据：')
       console.log(responseData)
       this.setState({
