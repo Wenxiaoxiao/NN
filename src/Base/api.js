@@ -25,12 +25,23 @@ let Api = {
 
     },
 
-    GetRegisterInfo: 'SysService/api/RegisterManager/GetRegisterInfo?isIntnet=true',
-    GetUser:'api/MobileCommerce/GetUser',//获取用户  
-    QueryBySqlName: 'api/CommonQuery/GetDataSetBySqlName',//Query通用方法
+    // GetRegisterInfo: 'SysService/api/RegisterManager/GetRegisterInfo?isIntnet=true',
+    // GetUser:'api/MobileCommerce/GetUser',//获取用户  
+    // QueryBySqlName: 'api/CommonQuery/GetDataSetBySqlName',//Query通用方法
 
 }
 
+let _GetApi = function (apiname) {
+    // return Api.ReleaseModel ? Api.Host_Formal.Inner + Api[apiname] : Api.Host_Test.Inner + Api[apiname];
+}
+
+export function GetApi(apiname) {
+    return _GetApi(apiname);
+};
+
+export function GetToken() {
+    return Api.ReleaseModel ? Api.Host_Formal.InnerToken + Api.Token : Api.Host_Test.InnerToken + Api.Token;
+};
 //export let ProdImageHost = 'http://static.yyjzt.com/MedicinedePository_new/';
 export default Api
 

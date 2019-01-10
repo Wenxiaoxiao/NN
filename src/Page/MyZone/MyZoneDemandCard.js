@@ -69,7 +69,7 @@ class MyZoneTask extends Component {
     return (
       <Content style={{ padding: '0 50px' }}>
       <Breadcrumb separator="" style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item ><Icon type="user" style={{margin:'0 10px 0'}} />高雪怡 ></Breadcrumb.Item>
+        <Breadcrumb.Item ><Icon type="user" style={{margin:'0 10px 0'}} />文小芳 ></Breadcrumb.Item>
         <Breadcrumb.Item><Link to="/Main" className="ant-breadcrumb-item-link" >首页</Link></Breadcrumb.Item>
         <Breadcrumb.Item><Link to="/Main/MyZoneTask"  className="ant-breadcrumb-item-link">任务</Link></Breadcrumb.Item>
         <Breadcrumb.Item><Link to="/Main/MyZoneBug" className="ant-breadcrumb-item-link">BUG</Link></Breadcrumb.Item>
