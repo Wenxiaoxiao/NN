@@ -19,6 +19,7 @@ import Project from '../Project';
 import Feedback from '../Feedback';
 import BasicData from '../BasicData';
 import Calendars from '../BasicData/Calendars';
+import Htmldiffs from '../BasicData/Htmldiffs';
 import VersionAdd from '../VersionPlan/VersionAdd';
 
 
@@ -114,6 +115,7 @@ class Main extends Component {
              <SubMenu   onTitleClick={this.TitleClick}   key="Main/BasicData"  title={<span>基础数据</span>}  >
               <Menu.Item key="Main/BasicData">首页</Menu.Item>
               <Menu.Item key="Main/BasicData/Calendars">日历</Menu.Item>
+              <Menu.Item key="Main/BasicData/Htmldiffs">文本对比</Menu.Item>
             </SubMenu>        
 
           </Menu>
@@ -134,6 +136,7 @@ class Main extends Component {
             <Route path="/Main/Feedback" component={Feedback} />
             <Route exact path="/Main/BasicData" component={BasicData} />
             <Route exact path="/Main/BasicData/Calendars" component={Calendars} />
+            <Route exact path="/Main/BasicData/Htmldiffs" component={Htmldiffs} />
             <Route exact path="/Main/VersionPlan/VersionAdd" component={VersionAdd} />
           </Switch> 
         </Router>
