@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Calendars from '../BasicData/Calendars';
 
 class Product extends Component {
   state = {
@@ -10,8 +11,8 @@ class Product extends Component {
   render() {
     return (
       <div >
-       产品
-
+       {/* <Calendars/> */}
+        产品
       </div>
     );
   }
