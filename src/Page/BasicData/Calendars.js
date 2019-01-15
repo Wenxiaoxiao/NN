@@ -1162,7 +1162,7 @@ cleanSetting = () =>{
   if(this.state.DeleteDays.length<1){
     message.error('没有选择要清除的日期!');
     return
-  }
+  } 
   var isNaN = Number.isNaN;
   var difference = function(arr1, arr2) {
       return arr1.reduce(function(previous, i) {
