@@ -24,6 +24,7 @@ import Calendars from '../BasicData/Calendars';
 import Htmldiffs from '../BasicData/Htmldiffs';
 import DictitemList from '../BasicData/DictitemList';
 import VersionAdd from '../VersionPlan/VersionAdd';
+import Documents from '../Documents';
 
 
 const { Header } = Layout;
@@ -72,7 +73,8 @@ class Main extends Component {
     'Main/Test': ['/Main/Test'],
     'Main/Product': ['/Main/Product'],
     'Main/Project': ['/Main/Project'],
-    'Main/BasicData': ['/Main/BasicData', '/Main/BasicData/Calendars','/Main/BasicData/Htmldiffs','/Main/BasicData/DictitemList']
+    'Main/BasicData': ['/Main/BasicData', '/Main/BasicData/Calendars','/Main/BasicData/Htmldiffs','/Main/BasicData/DictitemList'],
+    'Main/Documents':['/Main/Documents']
   }
 
   //获取所有权限控制，包括按钮和菜单
@@ -198,6 +200,7 @@ class Main extends Component {
             <Route exact path="/Main/BasicData/Htmldiffs" component={Htmldiffs} />
             <Route exact path="/Main/BasicData/DictitemList" component={DictitemList} />
             <Route exact path="/Main/VersionPlan/VersionAdd" component={VersionAdd} />
+            <Route path="/Main/Documents" component={Documents} />
           </Switch> 
         </Router>
     </Layout>

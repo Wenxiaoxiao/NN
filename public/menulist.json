@@ -628,5 +628,26 @@
         "LastModifier": "admin",
         "LastModifierID": null,
         "SId": 12
+    },
+    {
+        "FunctionName": "文档管理",
+        "DisplayName": "documents",
+        "Description": null,
+        "Url": "Main/Documents",
+        "ResourceType": "menu",
+        "ParentID": "0",
+        "Index": 9,
+        "BranchID": "ZDA",
+        "Note": null,
+        "DeleteFlag": 0,
+        "Id": "187",
+        "RowVersion": "2018-11-11T13:28:18",
+        "CreateTime": "2018-11-11T13:28:18",
+        "LastModifytime": "2018-11-11T13:28:18",
+        "Creator": "admin",
+        "CreatorID": null,
+        "LastModifier": "admin",
+        "LastModifierID": null,
+        "SId": 187
     }
 ]

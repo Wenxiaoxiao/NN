@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout,Form,DatePicker,Button,TimePicker,Calendar, Select,Divider,Spin } from 'antd';
+import { Layout,Form,DatePicker,Button,TimePicker,Calendar, Select,Divider,Spin,message } from 'antd';
 import {withRouter} from 'react-router-dom';
 import moment from 'moment';
 import Fetch from '../../Base/base'
@@ -562,6 +562,7 @@ class Calendars extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        IsHaveAddDay:false,
         spinloading:false,
         AddDays:[],
         DeleteDays:[],
@@ -790,6 +791,7 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
   function R(C) {
     return document.createElement(C)
   }
+  let _THAT = this;
   let MonthDays = [];
   let days = new Date(tmpYear,tmpMonth,0);//这个月最后一天
   let daysEnd = days.getDate();
@@ -820,6 +822,7 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
      // debugger
        if(this.className !== 'addDay' && this.className !== 'addDay1'&& this.className !== 'addDay2'&&this.className !== 'jqs'&&this.className !== 'txs'){//添加选中状态
         this.className = 'addDay';
+        _THAT.setState({IsHaveAddDay:true});
         // X.style.background = 'aaa';
         if(i<10){
           AddDays.push(tmpYear+'-'+tmpMonth+'-0'+i);
@@ -830,6 +833,7 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
        }
        else if(this.className === 'addDay'){//选中状态双击
         this.className = 'cell';
+        _THAT.setState({IsHaveAddDay:false});
         if(i<10){
           var val = tmpYear+'-'+tmpMonth+'-0'+i;
         }
@@ -847,6 +851,7 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
        }
        else if(this.className === 'addDay1'){
         this.className = 'addDay2';
+        _THAT.setState({IsHaveAddDay:false});
         console.log(i);
         if(i<10){
           var value = tmpYear+'-'+tmpMonth+'-0'+i;
@@ -866,6 +871,7 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
        }
        else if(this.className === 'addDay2'){
         this.className = 'addDay1';
+        _THAT.setState({IsHaveAddDay:false});
         if(i<10){
           var value1 = tmpYear+'-'+tmpMonth+'-'+i;
         }
@@ -946,7 +952,10 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
      }
   }
   console.log(AddDays);
-  this.setState({AddDays:AddDays});
+  // console.log(AddDays);
+  //数组去重
+  let uniqAddDays=this.uniq(AddDays);
+  this.setState({AddDays:uniqAddDays});
   this.setState({DeleteDays:DeleteDays});
   this.setState({MonthDays:MonthDays});
   this.setState({DeleteDaysAndID:DeleteDaysAndID});
@@ -955,6 +964,16 @@ GeyDayByYearMonth(tmpYear,tmpMonth){
   MonthDays.forEach(function(item,index,array){
     M("cm").appendChild(item);
   })
+}
+
+uniq(array){
+  var temp = []; //一个新的临时数组
+  for(var i = 0; i < array.length; i++){
+      if(temp.indexOf(array[i]) == -1){
+          temp.push(array[i]);
+      }
+  }
+  return temp;
 }
 
 componentDidMount(){
@@ -1097,6 +1116,11 @@ GetNoWorkDays = () =>{
 
 //添加休假
 addHolidayToSql = () =>{
+  console.log(this.state.IsHaveAddDay);
+  if(this.state.IsHaveAddDay === false){
+    message.error('没有选择要添加的休假日期!');
+    return
+  }
   console.log(this.state.AddDays);
   console.log(this.state.NoWorkDaysAll.length);
   let params = [];
@@ -1135,6 +1159,10 @@ addHolidayToSql = () =>{
 cleanSetting = () =>{
   console.log(this.state.DeleteDays);
   console.log(this.state.DeleteDaysAndID);
+  if(this.state.DeleteDays.length<1){
+    message.error('没有选择要清除的日期!');
+    return
+  }
   var isNaN = Number.isNaN;
   var difference = function(arr1, arr2) {
       return arr1.reduce(function(previous, i) {
@@ -1259,7 +1287,7 @@ render() {
     for(let i=YearSection.MinYear;i<YearSection.MaxYear;i++){
       YearOptions.push(i);
     }
-    let MonthOptions = [1,2,3,4,5,6,7,8,9,10,11,12];
+    let MonthOptions = ['01','02','03','04','05','06','07','08','09',10,11,12];
     // console.log(YearOptions);
     const dateFormat = 'MM-DD';
     const hourFormat = 'HH:mm';
